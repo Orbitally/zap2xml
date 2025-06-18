@@ -18,12 +18,14 @@ RUN apk add --no-cache perl@edge perl-html-parser@edge perl-http-cookies@edge \
                        perl-lwp-useragent-determined@edge perl-json@edge perl-json-xs@edge \
                        perl-lwp-protocol-https@edge perl-uri@edge ca-certificates@edge \
                        perl-net-libidn@edge perl-net-ssleay@edge perl-io-socket-ssl@edge \
-                       perl-libwww@edge perl-mozilla-ca@edge perl-net-http@edge
+                       perl-libwww@edge perl-mozilla-ca@edge perl-net-http@edge dos2unix
 RUN apk add --no-cache xmltv@edge
 
 VOLUME /data
 ADD zap2xml.pl /zap2xml.pl
 ADD entry.sh /entry.sh
 RUN chmod 755 /entry.sh /zap2xml.pl
+
+RUN dos2unix /entry.sh
 
 CMD ["/entry.sh"]
