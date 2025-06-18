@@ -27,5 +27,6 @@ ADD entry.sh /entry.sh
 RUN chmod 755 /entry.sh /zap2xml.pl
 
 RUN dos2unix /entry.sh
+RUN dos2unix /zap2xml.pl
 
 CMD ["/entry.sh"]
